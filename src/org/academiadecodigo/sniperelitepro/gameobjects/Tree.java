@@ -8,7 +8,7 @@ import org.academiadecodigo.simplegraphics.graphics.Picture;
 public class Tree extends GameObject implements Drawable {
 
     public void drawObject(){
-        Picture pic = new Picture(getRandomX(), getRandomY(), "elitesniper/resources/tree.png");
+        Picture pic = new Picture(getRandomX(), getRandomY(), "resources/tree.png");
         pic.draw();
 
         System.out.println("Tree with position -  x: " + pic.getX() + " y: " + pic.getY());

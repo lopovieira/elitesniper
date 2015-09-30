@@ -6,14 +6,22 @@ import org.academiadecodigo.sniperelitepro.grid.Grid;
 /**
  * Created by cadet on 28/09/15.
  */
-public class SniperRiffle extends GameObject implements Drawable {
+public class SniperRiffle extends GameObject implements Drawable{
+
+    int x = Grid.getWidth() / 2;
+    int y = Grid.getHeight() / 2;
+
+    Picture pic;
+
+    public void moveSniperRiffle(int deltaX, int deltaY){
+        pic.translate(deltaX, deltaY);
+
+        System.out.println("Sniper X: " + pic.getX() + " , Y: " + pic.getY());
+    }
 
     public void drawObject(){
 
-        int x = Grid.getWidth() / 2;
-        int y = Grid.getHeight() / 2;
-
-        Picture pic = new Picture(x, y, "elitesniper/resources/sniper.png");
+        pic = new Picture(x, y, "resources/sniper.png");
         pic.draw();
 
         System.out.println("SniperRiffle with position -  x: " + pic.getX() + " y: " + pic.getY());

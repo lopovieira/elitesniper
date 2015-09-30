@@ -9,72 +9,93 @@ import org.academiadecodigo.sniperelitepro.helpers.Helpers;
  */
 public class Car extends GameObject implements Drawable {
 
-    Picture pic = new Picture(getRandomX(), getRandomY(), "elitesniper/resources/car.png");
+    Picture pic = new Picture(getRandomX(), getRandomY(), "resources/car.png");
     int carSpeed = 5;
     Direction lastDirection = Direction.getRandomDirection();
 
-    public void drawObject(){
+    public void drawObject() {
 
         pic.draw();
-
-        System.out.println("Car with position -  x: " + pic.getX() + " y: " + pic.getY());
+        //System.out.println("Car with position -  x: " + pic.getX() + " y: " + pic.getY());
     }
 
     public void moveCar() {
 
         Direction d = getDirection();
+        //System.out.println(d);
 
-
-        // if getDirection - out of screen
-        /*
-        switch (random) {
-            case 0:
-                if(!isOutOfScreen()) {
-                    pic.load("elitesniper/resources/sniper.png");
-                    pic.translate(carSpeed, 0);
+        switch (d) {
+            case UP:
+                if(pic.getY() - carSpeed <= 0) {
+                    moveCar();
+                } else {
+                    pic.load("resources/car-up.png");
+                    pic.translate(0, -carSpeed);
                 }
                 break;
-            case 1:
-                pic.load("elitesniper/resources/tree.png");
-                pic.translate(-carSpeed, 0);
+            case DOWN:
+                if(pic.getY() + carSpeed >= Grid.getHeight() - 15){
+                    moveCar();
+                }else{
+                    pic.load("resources/car-down.png");
+                    pic.translate(0, carSpeed);
+                }
                 break;
-            case 2:
-                pic.load("elitesniper/resources/barrel.png");
-                pic.translate(0, carSpeed);
+            case LEFT:
+                if(pic.getX() - carSpeed <= 0){
+                    moveCar();
+                }else{
+                    pic.load("resources/car-left.png");
+                    pic.translate(-carSpeed, 0);
+                }
                 break;
-            case 3:
-                pic.load("elitesniper/resources/car.png");
-                pic.translate(0, -carSpeed);
+            case RIGHT:
+                if(pic.getX() + carSpeed >= Grid.getWidth() - 15){
+                    moveCar();
+                }else{
+                    pic.load("resources/car-right.png");
+                    pic.translate(carSpeed, 0);
+                }
                 break;
             default:
                 System.out.println("Invalid stupid position or wtv.");
                 break;
         }
+
+        System.out.println("Car pos, X: "+pic.getX() + " , Y: "+pic.getY());
+
     }
 
-    */
-    }
+    /*
+    public void moveInDirection(Direction dir) {
 
-    Direction getDirection(){
+        int dx, dy;
+        // update delta coordinates depending on dir
 
+        // test if possible to move
+
+        moveInDirection(getDirection());
+
+    }*/
+
+    Direction getDirection() {
         Direction newDirection = lastDirection;
+        int randNum = Helpers.generateRandomNumber(0, 5);
 
-        int randNum = Helpers.generateRandomNumber(0,5);
-
-        if (randNum >= 4){
+        if (randNum >= 4) {
             newDirection = Direction.getRandomDirection();
 
-            /*if (lastDirection.isOpposite(newDirection)) {
+            if (lastDirection.isOpposite(lastDirection, newDirection) || newDirection == lastDirection) {
                 return getDirection();
-            }*/
-
+            } else {
+                lastDirection = newDirection;
+            }
         }
         return newDirection;
     }
 
-
     @Override
-    public String getMessage(){
+    public String getMessage() {
         return "A lovely Car.";
     }
 }
