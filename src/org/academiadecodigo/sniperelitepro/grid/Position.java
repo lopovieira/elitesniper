@@ -1,26 +1,33 @@
-package org.academiadecodigo.sniperelitepro.grid;
+/*package org.academiadecodigo.sniperelitepro.grid;
 
 /**
  * Created by cadet on 28/09/15.
  */
+
+/*
 public class Position {
 
-    private int col;
-    private int row;
+    private int x;
+    private int y;
 
     public Position() {
 
-        this.col = (int) (Math.random() * Grid.getWidth());
-        this.row = (int) (Math.random() * Grid.getHeight());
+        this.x = (int) (Math.random() * Grid.getWidth());
+        this.y = (int) (Math.random() * Grid.getHeight());
 
     }
 
     public int getCol() {
-        return col;
+        return x;
     }
 
     public int getRow() {
         return row;
+    }
+
+    public void centerPos(){
+        this.col = Grid.getWidth() / 2;
+        this.row = Grid.getHeight() / 2;
     }
 
     public void setCol(int col) {
@@ -53,10 +60,11 @@ public class Position {
 
     @Override
     public String toString() {
-        return "Position{" +
-                "col=" + col +
-                ", row=" + row +
-                '}';
+        return "Position[" +
+                "x = " + col +
+                ", y = " + row +
+                ']';
     }
 }
 
+*/

@@ -1,6 +1,7 @@
 package org.academiadecodigo.sniperelitepro.grid;
 
-import org.academiadecodigo.simplegraphics.graphics.Picture;
+import org.academiadecodigo.simplegraphics.graphics.Color;
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.sniperelitepro.gameobjects.GameObject;
 
 /**
@@ -16,14 +17,17 @@ public class Grid {
         Grid.height = height;
     }
 
-    public static void draw(GameObject[] gameObjects){
+    public static void draw(GameObject[] gameObjects) {
+
+        Rectangle grid = new Rectangle(0,0,width, height);
+        grid.setColor(Color.LIGHT_GRAY);
+        grid.fill();
 
         for(GameObject gameObject : gameObjects){
-            Picture p = new Picture();
+            gameObject.drawObject();
         }
 
     }
-
 
     public static int getWidth() {
         return width;
