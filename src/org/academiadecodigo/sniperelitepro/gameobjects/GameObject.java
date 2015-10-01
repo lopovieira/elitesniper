@@ -16,7 +16,7 @@ public class GameObject implements Drawable {
 
     public int getRandomX() {
 
-        while(randomX % 5 != 0){
+        while(randomX % 5 != 0 || randomX > Grid.getWidth()){
             randomX = Helpers.generateRandomNumber(0, Grid.getWidth() - 10);
         }
         return randomX;
@@ -24,7 +24,7 @@ public class GameObject implements Drawable {
 
     public int getRandomY() {
 
-        while(randomY % 5 != 0){
+        while(randomY % 5 != 0 || randomY > Grid.getHeight()){
             randomY = Helpers.generateRandomNumber(0, Grid.getWidth() - 10);
         }
         return randomY;

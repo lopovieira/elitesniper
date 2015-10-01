@@ -16,7 +16,7 @@ public class Game implements KeyboardHandler {
     Grid grid;
     int delay;
 
-    GameObject[] gameObjects;
+    GameObject[] gameObjects = new GameObject[5];
 
     public Game(int width, int height, int delay) {
 
@@ -69,7 +69,6 @@ public class Game implements KeyboardHandler {
 
     GameObject[] generateGameObjects() throws InterruptedException {
 
-        gameObjects = new GameObject[25];
         gameObjects[0] = new SniperRiffle();
 
         for (int i = 1; i < gameObjects.length; i++) {
@@ -99,7 +98,7 @@ public class Game implements KeyboardHandler {
 
         switch (keyboardEvent.getKey()) {
             case KeyboardEvent.KEY_SPACE:
-                ((SniperRiffle) gameObjects[0]).moveSniperRiffle(10,10);
+                ((SniperRiffle) gameObjects[0]).shoot(gameObjects);
                 //System.out.println("SPACE PRESSED.");
                 break;
             case KeyboardEvent.KEY_UP:

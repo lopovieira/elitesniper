@@ -9,7 +9,7 @@ public class Barrel extends GameObject implements Drawable {
 
     public void drawObject(){
 
-        pic = new Picture(getRandomX(), getRandomY(), "resources/barrel.png");
+        pic = new Picture(getRandomX(), getRandomY(), "elitesniper/resources/barrel.png");
         pic.draw();
 
         System.out.println("Barrel with position -  x: " + pic.getX() + " y: " + pic.getY());

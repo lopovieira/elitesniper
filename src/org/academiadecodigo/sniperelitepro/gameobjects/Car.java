@@ -9,9 +9,22 @@ import org.academiadecodigo.sniperelitepro.helpers.Helpers;
  */
 public class Car extends GameObject implements Drawable {
 
-    Picture pic = new Picture(getRandomX(), getRandomY(), "resources/car.png");
+    Picture pic = new Picture(getRandomX(), getRandomY(), "elitesniper/resources/car.png");
     int carSpeed = 5;
     Direction lastDirection = Direction.getRandomDirection();
+
+    int carX = pic.getX();
+    int carY = pic.getY();
+
+    // boolean isCrashed;
+
+    public int getCarX() {
+        return carX;
+    }
+
+    public int getCarY() {
+        return carY;
+    }
 
     public void drawObject() {
 
@@ -29,7 +42,7 @@ public class Car extends GameObject implements Drawable {
                 if(pic.getY() - carSpeed <= 0) {
                     moveCar();
                 } else {
-                    pic.load("resources/car-up.png");
+                    pic.load("elitesniper/resources/car-up.png");
                     pic.translate(0, -carSpeed);
                 }
                 break;
@@ -37,7 +50,7 @@ public class Car extends GameObject implements Drawable {
                 if(pic.getY() + carSpeed >= Grid.getHeight() - 15){
                     moveCar();
                 }else{
-                    pic.load("resources/car-down.png");
+                    pic.load("elitesniper/resources/car-down.png");
                     pic.translate(0, carSpeed);
                 }
                 break;
@@ -45,7 +58,7 @@ public class Car extends GameObject implements Drawable {
                 if(pic.getX() - carSpeed <= 0){
                     moveCar();
                 }else{
-                    pic.load("resources/car-left.png");
+                    pic.load("elitesniper/resources/car-left.png");
                     pic.translate(-carSpeed, 0);
                 }
                 break;
@@ -53,7 +66,7 @@ public class Car extends GameObject implements Drawable {
                 if(pic.getX() + carSpeed >= Grid.getWidth() - 15){
                     moveCar();
                 }else{
-                    pic.load("resources/car-right.png");
+                    pic.load("elitesniper/resources/car-right.png");
                     pic.translate(carSpeed, 0);
                 }
                 break;
@@ -61,9 +74,7 @@ public class Car extends GameObject implements Drawable {
                 System.out.println("Invalid stupid position or wtv.");
                 break;
         }
-
-        System.out.println("Car pos, X: "+pic.getX() + " , Y: "+pic.getY());
-
+       // System.out.println("Car pos, X: "+pic.getX() + " , Y: "+pic.getY());
     }
 
     /*
